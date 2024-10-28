@@ -84,6 +84,7 @@ const futbolistas = [
     }
 ];
 
+//ACT 1 - Realizar una función para filtrar los jugadores que tengan más de 20 goles
 function filtrarGoles(futbolistas) {
     let futbolistasGoleadores = [];
     for (let index = 0; index < futbolistas.length; index++) {
@@ -94,7 +95,7 @@ function filtrarGoles(futbolistas) {
 
     return futbolistasGoleadores.filter(nombre => nombre !== undefined);
 }
-
+//ACT 2 - Obtener el total de goles de todos los jugadores 
 function calcularTotal(futbolistas){
     let total = 0;
     for (let index = 0; index < futbolistas.length; index++) {
@@ -105,11 +106,11 @@ function calcularTotal(futbolistas){
 
 }
 
-//Ordenar
+//ACT 3 - Ordenar los jugadores por asistencias (de mayor a menor) 
 function ordenarPorAsistencia(futbolistas) {
     for (let i = 0; i < futbolistas.length - 1; i++) {
         for (let j = 0; j < futbolistas.length - 1 - i; j++) {
-            if (futbolistas[j].asistencias < futbolistas[j + 1].asistencias) {
+            if (futbolistas[j].asistencias > futbolistas[j + 1].asistencias) {
                 // Intercambiar si el jugador j tiene menos asistencias que el jugador j + 1
                 const temp = futbolistas[j];
                 futbolistas[j] = futbolistas[j + 1];
@@ -121,7 +122,7 @@ function ordenarPorAsistencia(futbolistas) {
     return futbolistas;
 }
 
-// Version Guarra pero funcional
+//ACT 4 - Contar tarjetas rojas y amarillas por equipo  
 function contarTarjetas(futbolistas) {
     const tarjetasPorEquipo = {
         InterMiami: 0,
@@ -155,7 +156,7 @@ function contarTarjetas(futbolistas) {
 
     return tarjetasPorEquipo;
 }
-
+//ACT 5 - Obtener el promedio de goles por partido para cada jugador  
 function promedioGoles(futbolistas) {
     let promedioDeGoles = [];
     
@@ -171,7 +172,7 @@ function promedioGoles(futbolistas) {
     return promedioDeGoles;
 }
 
-
+//ACT 6 - Encontrar el jugador con más asistencias 
 function mvpAsists(futbolistas) {
     let topAsistencia = futbolistas[0];
 
@@ -184,6 +185,7 @@ function mvpAsists(futbolistas) {
     return topAsistencia.nombre;
 }
 
+//ACT 7 - Listar los nombres de los jugadores por posición  
 function listarJugadoresPorPosicion(futbolistas) {
     const jugadoresPorPosicion = {
         Portero: [],
@@ -217,4 +219,4 @@ console.log(ordenarPorAsistencia(futbolistas));
 console.log(contarTarjetas(futbolistas));
 console.log(promedioGoles(futbolistas));
 console.log("El jugador con mas asistencias es: "+mvpAsists(futbolistas));
-console.log(listarJugadoresPorPosicion(futbolistas))
+console.log(listarJugadoresPorPosicion(futbolistas));

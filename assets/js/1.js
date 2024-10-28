@@ -110,7 +110,7 @@ function calcularTotal(futbolistas){
 function ordenarPorAsistencia(futbolistas) {
     for (let i = 0; i < futbolistas.length - 1; i++) {
         for (let j = 0; j < futbolistas.length - 1 - i; j++) {
-            if (futbolistas[j].asistencias > futbolistas[j + 1].asistencias) {
+            if (futbolistas[j].asistencias < futbolistas[j + 1].asistencias) {
                 // Intercambiar si el jugador j tiene menos asistencias que el jugador j + 1
                 const temp = futbolistas[j];
                 futbolistas[j] = futbolistas[j + 1];

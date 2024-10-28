@@ -174,8 +174,24 @@ function contarTarjetas(futbolistas) {
     return tarjetasPorEquipo;
 }
 
+function promedioGoles(futbolistas) {
+    let promedioDeGoles = [];
+    
+    for (let index = 0; index < futbolistas.length; index++) {
+        let promedio = futbolistas[index].goles / futbolistas[index].partidosJugados;
+        const registroMedio = {
+            nombre: futbolistas[index].nombre,
+            promedio: promedio
+        };
+        promedioDeGoles.push(registroMedio);
+    }
+
+    return promedioDeGoles;
+}
+
 
 //Flujo
 console.log(filtrarGoles(futbolistas));
 console.log("Se han marcado "+calcularTotal(futbolistas)+" goles entre todos");
 console.log(contarTarjetas(futbolistas));
+console.log(promedioGoles(futbolistas));

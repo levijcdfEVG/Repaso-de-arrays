@@ -106,6 +106,20 @@ function calcularTotal(futbolistas){
 }
 
 //Ordenar
+function ordenarPorAsistencia(futbolistas) {
+    for (let i = 0; i < futbolistas.length - 1; i++) {
+        for (let j = 0; j < futbolistas.length - 1 - i; j++) {
+            if (futbolistas[j].asistencias < futbolistas[j + 1].asistencias) {
+                // Intercambiar si el jugador j tiene menos asistencias que el jugador j + 1
+                const temp = futbolistas[j];
+                futbolistas[j] = futbolistas[j + 1];
+                futbolistas[j + 1] = temp;
+            }
+        }
+    }
+
+    return futbolistas;
+}
 /* Version rebuscada
 function contarTarjetas(futbolistas) {
     let registroTarjetas = [];
@@ -190,8 +204,49 @@ function promedioGoles(futbolistas) {
 }
 
 
+function mvpAsists(futbolistas) {
+    let topAsistencia = futbolistas[0];
+
+    for (let index = 0; index < futbolistas.length; index++) {
+        if (futbolistas[index].asistencias > topAsistencia.asistencias) {
+            topAsistencia = futbolistas[index].nombre;
+        }
+    }
+
+    return topAsistencia.nombre;
+}
+
+function listarJugadoresPorPosicion(futbolistas) {
+    const jugadoresPorPosicion = {
+        Portero: [],
+        Defensa: [],
+        Centrocampista: [],
+        Delantero: []
+    };
+
+    for (let index = 0; index < futbolistas.length; index++) {
+        const futbolista = futbolistas[index];
+
+        if (futbolista.posicion === "Portero") {
+            jugadoresPorPosicion.Portero.push(futbolista.nombre);
+        } else if (futbolista.posicion === "Defensa") {
+            jugadoresPorPosicion.Defensa.push(futbolista.nombre);
+        } else if (futbolista.posicion === "Mediocampista") {
+            jugadoresPorPosicion.Centrocampista.push(futbolista.nombre);
+        } else if (futbolista.posicion === "Delantero") {
+            jugadoresPorPosicion.Delantero.push(futbolista.nombre);
+        }
+    }
+
+    return jugadoresPorPosicion;
+}
+
+
 //Flujo
 console.log(filtrarGoles(futbolistas));
 console.log("Se han marcado "+calcularTotal(futbolistas)+" goles entre todos");
+console.log(ordenarPorAsistencia(futbolistas));
 console.log(contarTarjetas(futbolistas));
 console.log(promedioGoles(futbolistas));
+console.log("El jugador con mas asistencias es: "+mvpAsists(futbolistas));
+console.log(listarJugadoresPorPosicion(futbolistas))

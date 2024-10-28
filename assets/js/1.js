@@ -120,39 +120,7 @@ function ordenarPorAsistencia(futbolistas) {
 
     return futbolistas;
 }
-/* Version rebuscada
-function contarTarjetas(futbolistas) {
-    let registroTarjetas = [];
 
-    for (let index = 0; index < futbolistas.length; index++) {
-        const equipo = futbolistas[index].equipo;
-
-        if (futbolistas[index].tarjetaRoja || futbolistas[index].tarjetaAmarilla) {
-            let encontrado = false;
-
-            // Verifica si el equipo ya está en registroTarjetas
-            for (let i = 0; i < registroTarjetas.length; i++) {
-                if (registroTarjetas[i].equipos === equipo) {
-                    registroTarjetas[i].ntarjetas += futbolistas[index].tarjetaAmarilla + futbolistas[index].tarjetaRoja;
-                    encontrado = true;
-                    break;
-                }
-            }
-
-            // Si no está, crea un nuevo objeto para el equipo
-            if (!encontrado) {
-                const tarjEquipos = {
-                    equipos: equipo,
-                    ntarjetas: futbolistas[index].tarjetaAmarilla + futbolistas[index].tarjetaRoja
-                };
-                registroTarjetas.push(tarjEquipos);
-            }
-        }
-    }
-
-    return registroTarjetas;
-}
-*/
 // Version Guarra pero funcional
 function contarTarjetas(futbolistas) {
     const tarjetasPorEquipo = {

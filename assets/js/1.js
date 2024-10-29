@@ -1,5 +1,7 @@
 'use strict';
 
+//AVISO: Esta version ha sido made by chatgpt. No entiendo ni el reduce
+
 // Arrays de objetos
 const futbolistas = [
     { nombre: "Lionel Messi", equipo: "Inter Miami", posicion: "Delantero", goles: 40, asistencias: 18, partidosJugados: 30, tarjetaAmarilla: 3, tarjetaRoja: 0 },
